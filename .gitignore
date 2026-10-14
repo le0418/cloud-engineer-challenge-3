@@ -1,0 +1,49 @@
+# Terraform local state and generated files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local variables and credentials
+*.tfvars
+!*.tfvars.example
+*.pem
+*.key
+.env
+.env.*
+
+# Ansible generated inventory
+ansible/inventory.ini
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Terraform state and local files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+*.tfbackend
+crash.log
+crash.*.log
+
+# Sensitive credentials and SSH keys
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Ansible local inventory
+ansible/inventory.ini
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
