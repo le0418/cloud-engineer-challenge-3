@@ -1,7 +1,3 @@
-\# Cloud Engineer Coding Challenge 3
-
-
-
 \## Project Overview
 
 
@@ -62,8 +58,6 @@ Traffic flows from a web browser over HTTP port 80 to the EC2 instance running N
 
 
 
-```text
-
 cloud-engineer-challenge-3/
 
 ├── terraform/
@@ -94,31 +88,29 @@ cloud-engineer-challenge-3/
 
 └── README.md
 
-```
-
 
 
 \## Prerequisites
 
 
 
-\- AWS account with permissions to provision the required resources
+- AWS account with permissions to provision the required resources
 
-\- AWS CLI configured with appropriate credentials
+- AWS CLI configured with appropriate credentials
 
-\- Terraform
+- Terraform
 
-\- Ansible
+- Ansible
 
-\- SSH key pair available in the selected AWS region
+- SSH key pair available in the selected AWS region
 
-\- Git
+- Git
 
-\- Linux or WSL2 environment for running Ansible
+- Linux or WSL2 environment for running Ansible
 
 
 
-\## Terraform Deployment
+## Terraform Deployment
 
 
 
@@ -132,7 +124,7 @@ cloud-engineer-challenge-3/
 
 
 
-```bash
+bash
 
 terraform init
 
@@ -146,7 +138,6 @@ terraform apply challenge3.tfplan
 
 terraform output
 
-```
 
 
 
@@ -168,25 +159,19 @@ Terraform provisions eight AWS resources, including the EC2 instance, S3 bucket 
 
 
 
-```bash
+bash
 
 ansible -i inventory.ini webservers -m ping
-
-```
-
 
 
 5\. Validate and execute the playbook.
 
 
-
-```bash
+bash
 
 ansible-playbook -i inventory.ini playbook.yml --syntax-check
 
 ansible-playbook -i inventory.ini playbook.yml
-
-```
 
 
 
@@ -202,11 +187,11 @@ The Terraform deployment completed successfully:
 
 
 
-\- 8 resources added
+- 8 resources added
 
-\- 0 resources changed
+- 0 resources changed
 
-\- 0 resources destroyed
+- 0 resources destroyed
 
 
 
@@ -214,13 +199,13 @@ The initial Ansible execution completed successfully:
 
 
 
-\- 5 tasks successful
+- 5 tasks successful
 
-\- 4 changes
+- 4 changes
 
-\- 0 unreachable hosts
+- 0 unreachable hosts
 
-\- 0 failed tasks
+- 0 failed tasks
 
 
 
@@ -228,13 +213,13 @@ A second Ansible execution confirmed idempotency:
 
 
 
-\- 4 tasks successful
+4 tasks successful
 
-\- 0 changes
+0 changes
 
-\- 0 unreachable hosts
+0 unreachable hosts
 
-\- 0 failed tasks
+0 failed tasks
 
 
 
@@ -246,17 +231,17 @@ The following checks were completed successfully:
 
 
 
-\- SSH access to the EC2 instance
+- SSH access to the EC2 instance
 
-\- Ansible connectivity test returning `pong`
+- Ansible connectivity test returning `pong`
 
-\- Nginx service active and enabled
+- Nginx service active and enabled
 
-\- Web page displaying `Hello, World!`
+- Web page displaying `Hello, World!`
 
-\- HTTP response status `200`
+- HTTP response status `200`
 
-\- TCP port 80 connectivity successful
+- TCP port 80 connectivity successful
 
 
 
@@ -264,71 +249,19 @@ The following checks were completed successfully:
 
 
 
-\- SSH access is restricted to an authorized source IP address.
+- SSH access is restricted to an authorized source IP address.
 
-\- HTTP port 80 is publicly accessible for the demonstration.
+- HTTP port 80 is publicly accessible for the demonstration.
 
-\- EC2 uses an IAM instance profile.
+- EC2 uses an IAM instance profile.
 
-\- EC2 instance metadata requires IMDSv2.
+- EC2 instance metadata requires IMDSv2.
 
-\- The EC2 root EBS volume is encrypted.
+- The EC2 root EBS volume is encrypted.
 
-\- S3 public access blocking is enabled.
+- S3 public access blocking is enabled.
 
-\- S3 default server-side encryption and versioning are enabled.
+- S3 default server-side encryption and versioning are enabled.
 
-\- Terraform state files, local variable files, SSH private keys, and actual Ansible inventory files are excluded from Git.
-
-
-
-For production deployment, recommended improvements include HTTPS/TLS, a stable DNS name, centralized monitoring and logging, least-privilege IAM permissions, and managed remote Terraform state.
-
-
-
-\## Screenshots
-
-
-
-Evidence is organized into these folders:
-
-
-
-\- `screenshots/01-environment/` — Environment and prerequisite verification
-
-\- `screenshots/02-terraform/` — Terraform validation, plan, and deployment
-
-\- `screenshots/03-aws-resources/` — AWS resource verification
-
-\- `screenshots/04-ansible/` — SSH, Ansible connectivity, deployment, and idempotency
-
-\- `screenshots/05-web-validation/` — Website and HTTP validation
-
-\- `screenshots/06-github/` — GitHub repository and submission evidence
-
-
-
-\## Cleanup
-
-
-
-After the challenge has been evaluated, infrastructure can be removed from the Terraform directory using:
-
-
-
-```bash
-
-terraform plan -destroy
-
-terraform destroy
-
-```
-
-
-
-Review the destroy plan before confirming. S3 buckets containing objects or object versions may require additional cleanup before Terraform can delete them.
-
-
-
-
+- Terraform state files, local variable files, SSH private keys, and actual Ansible inventory files are excluded from Git.
 
