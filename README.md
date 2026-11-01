@@ -330,5 +330,5 @@ Review the destroy plan before confirming. S3 buckets containing objects or obje
 
 
 
-\*\*Note:\*\* Keep the EC2 instance running until the reviewer has verified the live website. AWS charges may apply while resources remain deployed.
+
 
